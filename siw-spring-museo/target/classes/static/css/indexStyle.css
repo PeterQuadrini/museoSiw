@@ -43,9 +43,11 @@ h3{
 	display:flex;
 	justify-content: center;
 	align-items: center;
+
 }
 #collezioni{
 	background:rgba(255, 204, 0,0.7);
+	margin-top:5%;
 }
 .container{
 	height:55vh;

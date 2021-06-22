@@ -41,6 +41,7 @@ public class UtenteController {
 		model.addAttribute("operePreferite", utente.getOperePreferite());
 		model.addAttribute("opere", this.operaService.tutteLeOpere());
 		return "/opere";
+		
 	}
 
 	@RequestMapping(value = "/rimuoviPreferiti/{id}", method = RequestMethod.GET)
