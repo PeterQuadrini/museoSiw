@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{css/fragmentStyle.css}" rel="stylesheet">
+	<link th:href="@{css/loginStyle.css}" rel="stylesheet">
+	<title>Login</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h2>Accedi</h2>
+	<form th:action="@{/login}" method="POST">
+	
+		<div class="riga" id="riga1">
+			<h5>Username</h5>
+			<input type="text" name="username" placeholder="Username">
+		</div>
+		
+		<div class="riga">
+			<h5>Password</h5>
+			<input type="password" name="password" placeholder="Password">
+		</div>
+		
+		<div class="riga" id="submit">
+			<a th:href="@{/register}">Registrati</a>
+			<button type="submit" name="conferma" value="invia">Conferma</button>
+		</div>
+		
+	</form>
+</body>
+
+</html>

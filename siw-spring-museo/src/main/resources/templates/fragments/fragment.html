@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+	<nav class="navbar" th:fragment="intestazione">
+			<div class="area_personale">
+				<div class="img_profilo">
+					A
+				</div>
+				<h5>Area Personale</h5>
+				<ul class="menuTendina">
+					<li sec:authorize="isAnonymous()"><a th:href="@{/login}">Accedi</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/operePreferite}">Opere Preferite</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/}">Ticket Prenotati</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+					<li sec:authorize="isAnonymous()"><a th:href="@{/register}">Registrati</a></li>
+				</ul>
+			</div>
+
+		<div class="logo_nome">
+			<h2>Nome<br>Museo</h2>
+			<a href="home">
+				<div class="logo"></div>
+			</a>
+		</div>
+		<ul>
+			<li><a th:href="@{/opere}">Opere</a></li>
+			<li><a th:href="@{/}">Collezioni</a></li>
+			<li><a th:href="@{/}">Prenota Ticket</a></li>
+		</ul>
+		<div class="social_logos">
+			<div class="instagram">
+				<div class="inner">
+					<div class="circle"></div>
+				</div>
+			</div>
+			<a href="areaP">
+				<div class="facebook">f</div>
+			</a>
+		</div>
+	</nav>
+
+	<div class="box" th:fragment="operaBox(urlimage, nomeOpera, autoreOpera)">
+		<div class="opacityBox"></div>
+		<img th:src="${urlimage}">
+		<h1 th:text="${nomeOpera}"></h1>
+		<h2 th:text="${autoreOpera}"></h2>
+		<div class="bottomBox">Scopri di più</div>
+	</div>
+
+</body>
+
+</html>

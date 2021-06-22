@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{css/fragmentStyle.css}" rel="stylesheet">
+	<link th:href="@{css/opereStyle.css}" rel="stylesheet">
+	<title>Opere</title>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h1> Opere Preferite</h1>
+	<div class="content">
+		<div th:each="opera : ${operePreferite}" class="opera" th:if="${not operePreferite.isEmpty()}">
+			<a th:href="@{/}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${opera.url},${opera.nomeOpera},${opera.artista.nome}+' '+${opera.artista.cognome})">
+				</div>
+			</a>
+			<div class="barraPreferiti" sec:authorize="isAuthenticated()">
+			
+			<a th:href="@{/rimuoviPreferiti/{id} (id=${opera.id})}"><h6>Rimuovi dai preferiti</h6><img src="/svg/cuorePieno.svg"></a>
+			</div>
+		</div>
+		<h4 th:unless="${not operePreferite.isEmpty()}">Non hai nessuna opera preferita</h4>
+		
+</body>
+
+</html>

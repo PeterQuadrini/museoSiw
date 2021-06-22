@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{/css/loginStyle.css}" rel="stylesheet">
+	<link th:href="@{/css/fragmentStyle.css}" rel="stylesheet">
+	<title>Registrati</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h2>Registrati</h2>
+	<form th:action="@{/register}" method="POST" id="register">
+
+		<div class="riga" id="riga1">
+			<h5>Nome</h5>
+			<input type="text" placeholder="Nome" required th:field="${utente.nome}">
+		</div>
+
+		<div class="rigaE" th:if="${#fields.hasErrors('utente.nome')}"
+                th:errors="${utente.nome}" ></div>
+       
+      <div class="riga">
+          <h5>Cognome</h5>
+          <input type="text" placeholder="Cognome" required th:field="${utente.cognome}">
+      </div>  
+      
+      <div class="rigaE" th:if="${#fields.hasErrors('utente.cognome')}"
+                th:errors="${utente.cognome}" ></div>
+      
+      
+      <div class="riga">
+          <h5>Username</h5>
+          <input type="text" placeholder="Username" required th:field="${credentials.username}">
+      </div>
+      
+      <div class="rigaE" th:if="${#fields.hasErrors('credentials.username')}"
+                th:errors="${credentials.username}" ></div>
+      
+      
+      <div class="riga">
+          <h5>Password</h5>
+          <input type="password" placeholder="Password" required th:field="${credentials.password}">
+      </div>
+      
+      <div class="rigaE" th:if="${#fields.hasErrors('credentials.password')}"
+                th:errors="${credentials.password}" ></div>
+      
+      <div class="riga" id="submit">
+          <a th:href="@{/}">Indietro</a>
+          <button type="submit" name="conferma" value="Invia">Conferma</button>
+          
+      </div>
+   </form>
+</body>
+</html>

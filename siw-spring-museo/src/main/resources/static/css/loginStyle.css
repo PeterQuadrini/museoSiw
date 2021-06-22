@@ -1,0 +1,83 @@
+body{
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+h2{
+	margin-top:2%;
+}
+form{
+	margin:2%;
+	height:50vh;
+	width:30%;
+	border-radius: 3%;
+	background-color: rgb(255, 204, 0);
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	position:relative;
+}
+#register{
+	height:70vh;
+}
+.riga{
+    position:relative;
+	height:7vh;
+	width:85%;
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.rigaE{
+	height:3vh;
+	width:80%;
+    font-size: 1.5vh;
+    color:red;
+}
+
+.riga h5{
+	position:absolute;
+	left:0%;
+	width:30%;
+}
+#riga1{
+		margin-top: 10%;
+}
+
+input[type=text], input[type=password]{
+	height:4.5vh;
+	width:60%;
+	border:none;
+	box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+	padding-left:2%;
+}
+
+button{
+	height:5vh;
+	width:18vh;
+	border: none;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+
+button[name=conferma]{
+	background-color:rgb(0, 128, 0);
+	color:white;
+	box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+}
+button[name=registrati]{
+	background-color:rgb(255, 204, 0);
+	color:black;
+}
+
+#submit{
+	justify-content: space-around;
+	position:absolute;
+	bottom:10%;
+}

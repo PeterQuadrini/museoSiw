@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{/css/fragmentStyle.css}" rel="stylesheet">
+	<link th:href="@{/css/indexStyle.css}" rel="stylesheet">
+	<title>Home</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<header>
+		<img id="i1" th:src="@{/images/h1.jpg}">
+		<div class="logo"></div>
+		<h1>NOME MUSEO</h1>
+		<p>Benvenuti nella pagina ufficiale del Museo</p>
+
+		<div class="opacityBox"></div>
+	</header>
+
+    <h3>Scopri le nostre Opere</h3>
+	<div class="container">
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='images/h1.jpg', nomeOpera='Notte Stellata', autoreOpera='Vincent Van Gogh')">
+		</div>
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='/images/h2.jpg', nomeOpera='Transverse line', autoreOpera='Vasilij Kandinskij')">
+		</div>
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='/images/h3.jpg', nomeOpera='Il Bacio', autoreOpera='Gustave Klimt')">
+		</div>
+	</div>
+	<h3 id="collezioni">Scopri le nostre Collezioni</h3>
+	<div class="container" id="c2">
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='/images/h1.jpg', nomeOpera='Notte Stellata', autoreOpera='Vincent Van Gogh')">
+		</div>
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='/images/h2.jpg', nomeOpera='Transverse line', autoreOpera='Vasilij Kandinskij')">
+		</div>
+		<div
+			th:replace="fragments/fragment.html :: operaBox(urlimage='/images/h3.jpg', nomeOpera='Il Bacio', autoreOpera='Gustave Klimt')">
+		</div>
+	
+	</div>
+
+</body>
+
+</html>
