@@ -26,6 +26,9 @@ public class Opera {
 	@Column(nullable = false)
 	private String url;
 	
+	@Column
+	private String descrizione;
+	
 	@Override
 	public String toString() {
 		return "";

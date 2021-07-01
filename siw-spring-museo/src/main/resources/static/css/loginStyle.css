@@ -56,6 +56,10 @@ input[type=text], input[type=password]{
 	padding-left:2%;
 }
 
+input:focus{
+	outline: none;
+}
+
 button{
 	height:5vh;
 	width:18vh;

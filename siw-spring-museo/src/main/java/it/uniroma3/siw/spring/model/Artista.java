@@ -37,4 +37,7 @@ public class Artista {
 	
 	@Column
 	private Date dataMorte;
+	
+	@Column
+	private String url;
 }

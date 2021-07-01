@@ -1,0 +1,96 @@
+*{
+	margin:0;
+}
+
+body{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	background:#e0e0e0;
+}
+
+h3{
+	margin-top:2%;
+	z-index: 3;
+}
+
+form{
+	position:relative;
+	height:60vh;
+	width:80vh;
+	margin-top:2%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5%;
+    background: #e0e0e0;
+    box-shadow:  23px 23px 40px #b8b8b8,
+                -23px -23px 40px #ffffff;
+}
+
+.row{
+	display:flex;
+	justify-content: space-evenly;
+	align-items: center;
+	position:relative;
+	width:60vh;
+	height:10vh;
+}
+
+.row h5{
+	position:absolute;
+	left:0;
+}
+
+input,select{
+	position:absolute;
+	right:0;
+	height:4vh;
+	width:30vh;
+	border:none;
+
+}
+
+textarea{
+	position:absolute;
+	right:0;
+	top:30%;
+	width:30vh;
+	height:12vh;
+	font-size: 2vh;
+	border:none;
+}
+
+input:focus, select:focus, textarea:focus{
+    outline:none;
+}
+select{
+	font-size: 2vh;
+}
+h6{
+	position:absolute;
+	right: 0;
+	color:rgb(161, 161, 161);
+	font-size: 1.5vh;
+	bottom:0;
+	transition:0.3s;
+}
+
+.row a:hover h6{
+	color:black;
+}
+
+button{
+	border:none;
+	height:5vh;
+	width:15vh;
+	background:white;
+	position:absolute;
+	bottom:10%;
+	transition:0.25s;
+}
+
+button:hover{
+	background: rgb(255, 204, 0);
+}
+

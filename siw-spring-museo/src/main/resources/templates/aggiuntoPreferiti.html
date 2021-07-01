@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/css/fragmentStyle.css}" rel="stylesheet">
+<link th:href="@{/css/removeAddOperaStyle.css}" rel="stylesheet">
+<title>Successful</title>
+</head>
+<body>
+<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+<h1>Opera aggiunta ai preferiti</h1>
+<a th:href="@{/opere}" class="button">Continua a navigare<div class="scrollBar"></div></a> 
+</body>
+</html>

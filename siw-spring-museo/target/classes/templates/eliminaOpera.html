@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/opereStyle.css" rel="stylesheet">
+	<title>Opere</title>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h1> Opere</h1>
+	<div class="content">
+		<div th:each="opera : ${opere}" class="opera">
+			<a th:href="@{/}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${opera.url},${opera.nomeOpera},${opera.artista.nome}+' '+${opera.artista.cognome})">
+				</div>
+			</a>
+			<div class="barraPreferiti">
+
+				<a th:href="@{/eliminaOpera/{id} (id=${opera.id})}">
+					<h6>Elimina Opera</h6><img src="/svg/cuorePieno.svg">
+				</a>
+			</div>
+		</div>
+</body>
+
+</html>

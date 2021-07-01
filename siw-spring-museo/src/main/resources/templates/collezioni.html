@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<link th:href="@{css/fragmentStyle.css}" rel="stylesheet">
+	<link th:href="@{css/opereStyle.css}" rel="stylesheet">
+	<title>Collezioni</title>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h1>Collezioni</h1>
+	<div class="content">
+		<div th:if="${not collezioni.isEmpty()}" th:each="collezione : ${collezioni}" class="collezione">
+			<a th:href="@{/collezione/{id} (id=${collezione.id})}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${collezione.url},${collezione.nome},'')">
+				</div>
+			</a>
+		</div>
+		<h4 th:unless="${not collezioni.isEmpty()}">Non hai nessuna opera preferita</h4>
+</body>
+
+</html>

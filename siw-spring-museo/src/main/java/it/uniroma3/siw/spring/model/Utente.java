@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 
 import lombok.Data;
 
@@ -22,7 +24,8 @@ public class Utente {
 	private String nome;
 	@Column(nullable =false)
 	private String cognome;
-	@OneToMany
+	@ManyToMany
+	@JoinTable(name = "opere_preferite")
 	private List<Opera> operePreferite;
 	
 	public void addPreferita(Opera opera) {

@@ -29,5 +29,14 @@ public class OperaService {
 		}
 		return null;
 	}
-
+	
+	@Transactional
+	public void save(Opera o) {
+		this.operaRepository.save(o);
+	}
+	
+	@Transactional
+	public void delete(Opera o) {
+		this.operaRepository.delete(o);
+	}
 }

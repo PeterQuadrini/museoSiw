@@ -1,5 +1,6 @@
 package it.uniroma3.siw.spring.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,7 @@ public class UtenteController {
 
 	@Autowired
 	private UtenteService utenteService;
+	
 
 	@RequestMapping(value = "/aggiungiPreferiti/{id}", method = RequestMethod.GET)
 	public String addPreferiti(Model model, @PathVariable("id") Long id) {
@@ -40,7 +42,7 @@ public class UtenteController {
 
 		model.addAttribute("operePreferite", utente.getOperePreferite());
 		model.addAttribute("opere", this.operaService.tutteLeOpere());
-		return "/opere";
+		return "opere.html";
 		
 	}
 
