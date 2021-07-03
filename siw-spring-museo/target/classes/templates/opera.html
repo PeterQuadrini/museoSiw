@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Opera</title>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/operaStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<div class="header">
+		<div class="img"><img th:src="@{${opera.url}}"></div>
+		<div class="bio">
+			<div class="row">
+				<h5 class="att">Nome: </h5>
+				<h3 th:text="${opera.nomeOpera}"></h3>
+			</div>
+			<div class="row">
+				<h5 class="att">Artista: </h5>
+				<a th:href="@{/artista/{id} (id=${opera.artista.id})}" id="artista">
+				<h3 th:text="${opera.artista.nome}+' '+${opera.artista.cognome}"></h3>
+				</a>
+			</div>
+			<div class="row" th:if="${opera.descrizione}!='' and ${opera.descrizione!=null}">
+				<h6 class="att">Descrizione: </h6>
+				<h6 th:text="${opera.descrizione}"></h6>
+			</div>
+			<div class="row" th:if="${opera.collezione}!=null"><a id="coll"
+					th:href="@{/collezione/{id} (id=${opera.collezione.id})}">
+					<h6 class="att">Collezione: </h6>
+					<h6 th:text="${opera.collezione.nome}"></h6>
+				</a></div>
+
+			<div class="row" id="last" sec:authorize="hasAuthority('DEFAULT')">
+				<a th:href="@{/aggiungiPreferiti/{id} (id=${opera.id})}" th:if="
+			${not operePreferite.contains(opera)}">
+					<h5>Aggiungi a Preferiti</h5><img src="/svg/cuoreVuoto.svg">
+				</a>
+
+				<a th:href="@{/rimuoviPreferiti/{id} (id=${opera.id})}" th:unless="
+			${not operePreferite.contains(opera)}">
+					<h5>Rimuovi dai preferiti</h5><img src="/svg/cuorePieno.svg">
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

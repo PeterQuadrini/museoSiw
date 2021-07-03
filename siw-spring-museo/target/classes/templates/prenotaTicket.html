@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Prenota Ticket</title>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/prenotaTicketStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h5 th:if="${ticketDisponibili.isEmpty()}" id="message">Non sono disponibili i ticket in questo momento</h5>
+	<div class="content">
+	<label> Ticket disponibili</label>
+		<a class="row" th:each="ticket :${ticketDisponibili}" th:href="@{/prenota/{id} (id=${ticket.id})}" th:if="${ticket.localDate}>${dataOggi}">
+			<label>Ticket</label>
+			<div class="block"><label>ID</label>
+				<h5 th:text="${ticket.id}"></h5>
+			</div>
+			<div class="block"><label>Giorno</label>
+				<h5 th:text="${ticket.localDate}"></h5>
+			</div>
+			<div class="block"><label>Posti disponibili</label>
+				<h5 th:text="${ticket.posti_disponibili}"></h5>
+			</div>
+		</a>
+	</div>
+
+</body>
+
+
+</html>

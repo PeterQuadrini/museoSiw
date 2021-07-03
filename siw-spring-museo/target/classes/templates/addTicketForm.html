@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
+	<title>Aggiungi Ticket</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h3>Aggiungi Ticket</h3>
+
+	<form th:action="@{/addTicket}" method="POST">
+		<div class="row">
+			<h5 >Numero posti: </h5>
+			<input type="text" th:field="${ticket.numero_posti}"
+			 placeholder="Numero posti">
+		</div>
+		<div class="row">
+			<h5>Giorno: </h5>
+			<input type="date" th:field="${ticket.localDate}" placeholder="AAAA/MM/GG">
+		</div>
+
+		
+		<button type="submit">Aggiungi</button>
+	</form>
+
+</body>
+
+</html>

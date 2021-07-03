@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Visualizza Ticket</title>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/prenotaTicketStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h5 th:if="${ticketUtente.isEmpty()}" id="message">Non Hai effettuato nessuna Prenotazione</h5>
+	<div class="content">
+	<label> Prenotazioni in corso</label>
+		<a class="row" th:each="ticket :${ticketUtente}" th:if="${ticket.ticket.localDate}>${dataOggi}">
+			<label>Ticket</label>
+			<div class="block"><label>ID</label>
+				<h5 th:text="${ticket.id}"></h5>
+			</div>
+			<div class="block"><label>Giorno</label>
+				<h5 th:text="${ticket.ticket.localDate}"></h5>
+			</div>
+			<div class="block"><label>Posti prenotati</label>
+				<h5 th:text="${ticket.posti_prenotati}"></h5>
+			</div>
+	       <a id="bin" th:href="@{/eliminaTicket/{id} (id=${ticket.id})}"><img th:src="@{/svg/bin.svg}"></a>
+		</a>
+	</div>
+	
+	<div class="content">
+	<label> Prenotazioni concluse</label>
+		<a class="row conclusa" th:each="ticket :${ticketUtente}" th:unless="${ticket.ticket.localDate}>${dataOggi}">
+			<label>Ticket</label>
+			<div class="block"><label>ID</label>
+				<h5 th:text="${ticket.id}"></h5>
+			</div>
+			<div class="block"><label>Giorno</label>
+				<h5 th:text="${ticket.ticket.localDate}"></h5>
+			</div>
+			<div class="block"><label>Posti prenotati</label>
+				<h5 th:text="${ticket.posti_prenotati}"></h5>
+			</div>
+		</a>
+	</div>
+
+</body>
+
+
+</html>

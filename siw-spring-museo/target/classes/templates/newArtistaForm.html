@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
+	<title>Aggiungi Artista</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h3>Aggiungi Artista</h3>
+
+	<form th:action="@{/addArtista}" method="POST" id="artistaF">
+		<div class="row">
+			<h5>Nome Artista</h5><input type="text" name="nome" placeholder="Inserisci nome Artista"
+				th:field="${artista.nome}" required>
+				
+		</div>
+		<div class="row">
+			<h5>Cognome Artista</h5><input type="text" name="nome" placeholder="Inserisci cognome Artista"
+				th:field="${artista.cognome}" required>
+		</div>
+		<div class="row">
+			<h5>Data nascita</h5><input type="date" name="nascita" placeholder="gg/mm/aaaa"
+				th:field="${artista.dataNascita}" required>
+				<div class="rigaE" th:if="${#fields.hasErrors('artista.dataNascita')}"
+                th:errors="${artista.dataNascita}" ></div>
+		</div>
+		<div class="row">
+			<h5>Data morte</h5><input type="date" name="morte" placeholder="gg/mm/aaaa"
+				th:field="${artista.dataMorte}">
+				<div class="rigaE" th:if="${#fields.hasErrors('artista.dataMorte')}"
+                th:errors="${artista.dataMorte}" ></div>
+		</div>
+		<div class="row">
+			<h5>Nazionalita</h5><input type="text" name="nome" placeholder="Nazione di nascita"
+				th:field="${artista.nazionalita}" required>
+		</div>
+		<div class="row">
+			<h5>URL foto</h5><input type="text" name="nome" placeholder="URL"
+				th:field="${artista.url}" required>
+		</div>
+		<div class="row">
+			<h5>Descrizione</h5><textarea name="descrizione" placeholder="Descrizione..."
+				th:field="${artista.bio}"></textarea>
+		</div>
+		
+		<button type="submit">Aggiungi</button>
+	</form>
+
+</body>
+
+</html>

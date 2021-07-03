@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Gestisci Opere</title>
+<link href="/css/fragmentStyle.css" rel="stylesheet">
+<link href="/css/gestisciOpereStyle.css" rel="stylesheet">
+</head>
+
+<body>
+<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+
+<div class="row"  id="first"><a th:href="@{/addTicket}"><h4>Aggiungi Ticket</h4></a></div>
+<div class="row"><a th:href="@{/rimuoviTicket}"><h4>Rimuovi Ticket</h4></a></div>
+
+</body>
+
+</html>

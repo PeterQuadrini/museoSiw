@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Rimuovi Ticket</title>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/prenotaTicketStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+ 
+	<div class="content">
+	<label> Ticket disponibili</label>
+		<a class="row" th:each="ticket :${ticketDisponibili}" th:href="@{/rimuovi/{id} (id=${ticket.id})}" th:if="${ticket.localDate}>${dataOggi}">
+			<label>Ticket</label>
+			<div class="block"><label>ID</label>
+				<h5 th:text="${ticket.id}"></h5>
+			</div>
+			<div class="block"><label>Giorno</label>
+				<h5 th:text="${ticket.localDate}"></h5>
+			</div>
+			<div class="block"><label>Posti disponibili</label>
+				<h5 th:text="${ticket.posti_disponibili}"></h5>
+			</div>
+			<img id="binImg" th:src="@{/svg/bin.svg}">
+		</a>
+	</div>
+
+</body>
+
+
+</html>

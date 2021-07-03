@@ -1,6 +1,6 @@
 package it.uniroma3.siw.spring.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -32,12 +34,17 @@ public class Artista {
 	@OneToMany(mappedBy = "artista")
 	private List<Opera> opere;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
-	private Date dataNascita;
+	private LocalDate dataNascita;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
-	private Date dataMorte;
+	private LocalDate dataMorte;
 	
 	@Column
 	private String url;
+	
+	@Column
+	private String bio;
 }

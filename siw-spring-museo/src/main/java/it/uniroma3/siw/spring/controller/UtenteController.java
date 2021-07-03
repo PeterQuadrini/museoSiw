@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.model.Utente;
+import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.CredentialsService;
 import it.uniroma3.siw.spring.service.OperaService;
 import it.uniroma3.siw.spring.service.UtenteService;
@@ -28,6 +30,9 @@ public class UtenteController {
 
 	@Autowired
 	private UtenteService utenteService;
+	
+	@Autowired
+	private ArtistaService artistaService;
 	
 
 	@RequestMapping(value = "/aggiungiPreferiti/{id}", method = RequestMethod.GET)
@@ -77,6 +82,26 @@ public class UtenteController {
 		Utente utente = getUtente();
 		model.addAttribute("operePreferite", utente.getOperePreferite());
 		return "operePreferite.html";
+	}
+	
+	@RequestMapping(value="/opera/{id}", method=RequestMethod.GET)
+	public String goOpera(Model model, @PathVariable Long id) {
+		Utente utente = getUtente();
+		model.addAttribute("operePreferite", utente.getOperePreferite());
+		Opera opera = this.operaService.findById(id);
+		model.addAttribute("opera",opera);
+		return "opera.html";
+	}
+	
+	
+	@RequestMapping(value="/artista/{id}", method=RequestMethod.GET)
+	public String goArtista(Model model, @PathVariable Long id) {
+		Utente utente = getUtente();
+		model.addAttribute("operePreferite", utente.getOperePreferite());
+		Artista artista = this.artistaService.findById(id);
+		model.addAttribute("artista", artista);
+		model.addAttribute("opereArtista", artista.getOpere());
+		return "artista.html";
 	}
 	
 	

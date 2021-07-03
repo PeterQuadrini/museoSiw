@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Gestisci Opere</title>
+<link href="/css/fragmentStyle.css" rel="stylesheet">
+<link href="/css/gestisciOpereStyle.css" rel="stylesheet">
+</head>
+
+<body>
+<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+
+<div class="row" ><a th:href="@{/addCollezione}"><h4>Aggiungi Collezione</h4></a></div>
+<div class="row"><a th:href="@{/addOperaCollezione}"><h4>Aggiungi opera a Collezione</h4></a></div>
+<div class="row"><a th:href="@{/remOperaCollezione}"><h4>Elimina opera da Collezione</h4></a></div>
+<div class="row"><a th:href="@{/eliminaCollezione}"><h4>Rimuovi Collezione</h4></a></div>
+
+</body>
+
+</html>

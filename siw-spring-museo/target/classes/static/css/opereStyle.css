@@ -18,6 +18,10 @@ h1{
 	justify-content: center;
 }
 
+#nomeA{
+	margin-left: 5%;
+}
+
 .opera, .collezione{
 	margin:2%;
 }
@@ -40,6 +44,8 @@ h1{
 	align-items: center;
 }
 
-img{
+a img{
 	height:5vh;
 }
+
+h4{margin-left:3%;}

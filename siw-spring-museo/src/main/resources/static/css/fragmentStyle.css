@@ -41,15 +41,16 @@ body{
 	transition:0.5s;
 }
 
-.menuTendina li{
+.menuTendina li, .menuTendina .aut{
 	width:100%;
 	height:6vh;
 	background: rgb(255, 204, 0);
 	display:flex;
 	justify-content: center;
 	align-items: center;
-
+    font-size: 2vh;
 }
+
 
 
 
@@ -260,6 +261,10 @@ a:visited{
 	box-shadow: none;
 }
 .menuTendina li:hover{
+	background: rgb(230, 184, 0);
+}
+
+.menuTendina .aut:hover{
 	background: rgb(230, 184, 0);
 }
 

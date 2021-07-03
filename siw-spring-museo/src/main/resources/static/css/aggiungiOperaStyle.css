@@ -16,7 +16,7 @@ h3{
 
 form{
 	position:relative;
-	height:60vh;
+	min-height:60vh;
 	width:80vh;
 	margin-top:2%;
 	display:flex;
@@ -26,6 +26,9 @@ form{
     background: #e0e0e0;
     box-shadow:  23px 23px 40px #b8b8b8,
                 -23px -23px 40px #ffffff;
+}
+#artistaF{
+	height:100vh;
 }
 
 .row{
@@ -92,5 +95,15 @@ button{
 
 button:hover{
 	background: rgb(255, 204, 0);
+}
+
+.rigaE{
+	height:3vh;
+	width:80%;
+    font-size: 1.5vh;
+    color:red;
+    position:absolute;
+    bottom:0;
+    left:0;
 }
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Elimina Artista</title>
+<link href="/css/fragmentStyle.css" rel="stylesheet">
+<link href="/css/opereStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h1> Artisti</h1>
+	<h4 th:if="${artisti.isEmpty()}">Non esiste nessun Artista in questo momento</h4>
+	<div class="content">
+		<div th:each="artista : ${artisti}" class="opera">
+		<h6 th:text="${artista.nome}+' '+${artista.cognome}" id="nomeA"></h6>
+			<a th:href="@{/eliminaArtista/{id} (id=${artista.id})}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${artista.url},${artista.nome}+' '+${artista.cognome},' ')">
+				</div>
+			</a>
+			<div class="barraPreferiti">
+			<a th:href="@{/eliminaArtista/{id} (id=${artista.id})}"><h6>Elimina Artista</h6><img src="/svg/bin.svg"></a>
+			</div>
+		</div>
+</body>
+
+
+
+</html>

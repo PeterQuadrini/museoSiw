@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/opereStyle.css" rel="stylesheet">
+	<title>Aggiungi Opera</title>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h1> Seleziona Opera</h1>
+	<div class="content">
+		<div th:each="opera : ${opere}" class="opera" th:if="${opera.collezione}==null">
+			<a th:href="@{/aggiungiACollezione/{id1}/{id2} (id1=${collezione.id},id2=${opera.id})}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${opera.url},${opera.nomeOpera},${opera.artista.nome}+' '+${opera.artista.cognome})">
+				</div>
+			</a>
+			<div class="barraPreferiti">
+				<a th:href="@{/aggiungiACollezione/{id1}/{id2} (id1=${collezione.id},id2=${opera.id})}">
+					<h6>+ Aggiungi a Collezione</h6>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

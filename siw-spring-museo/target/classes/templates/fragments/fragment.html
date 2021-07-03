@@ -10,10 +10,12 @@
 			<h5>Area Personale</h5>
 			<ul class="menuTendina">
 				<li sec:authorize="isAnonymous()"><a th:href="@{/login}">Accedi</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/operePreferite}">Opere Preferite</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/}">Ticket Prenotati</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciOpere}">Gestisci Opere</a></li>
-				<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciCollezioni}">Gestisci Collezioni</a></li>
+				<li sec:authorize="hasAuthority('DEFAULT')" access="isAuthenticated()" class="aut"><a th:href="@{/operePreferite}">Opere Preferite</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"class="aut"><a th:href="@{/gestisciOpere}">Gestisci Opere</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')" class="aut"><a th:href="@{/gestisciCollezioni}">Gestisci Collezioni</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')" class="aut"><a th:href="@{/gestisciArtisti}">Gestisci Artisti</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')" class="aut"><a th:href="@{/gestisciTicket}">Gestisci Ticket</a></li>
+				<li sec:authorize="hasAuthority('DEFAULT')" class="aut"><a th:href="@{/viewTicket}">I tuoi Ticket</a></li>
 				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				<li sec:authorize="isAnonymous()"><a th:href="@{/register}">Registrati</a></li>
 			</ul>
@@ -28,7 +30,8 @@
 		<ul>
 			<li><a th:href="@{/opere}">Opere</a></li>
 			<li><a th:href="@{/collezioni}">Collezioni</a></li>
-			<li><a th:href="@{/}">Prenota Ticket</a></li>
+			<li><a th:href="@{/prenotaTicket}" sec:authorize="!hasAuthority('ADMIN')">Prenota Ticket</a></li>
+			<li><a th:href="@{/prenotaTicket}" sec:authorize="hasAuthority('ADMIN')">Gestisci Ticket</a></li>
 		</ul>
 		<div class="social_logos">
 			<div class="instagram">

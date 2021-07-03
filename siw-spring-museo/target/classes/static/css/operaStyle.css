@@ -1,0 +1,152 @@
+body{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+    background:#e0e0e0;
+}
+
+.header{
+	margin-top:2%;
+	position:relative;
+	height:60vh;
+	width:80%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+    background:#e0e0e0;
+	box-shadow:  23px 23px 40px #b8b8b8,
+                -23px -23px 40px #ffffff;
+}
+
+.img{
+	height:55vh;
+	width:65vh;
+	position:absolute;
+	top:2.5vh;
+	left:5vh;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img img
+{
+	position:absolute;
+	max-height:55vh;
+	max-width: 65vh;
+}
+
+.img .foto{
+	max-height:55vh;
+	max-width: 65vh;
+}
+
+.bio{
+	position:absolute;
+	right:2.5vh;
+	top:2.5vh;
+	height:55vh;
+	width: 80vh;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+    background:#e0e0e0;
+}
+
+.row{
+	height:4vh;
+	width:70vh;
+	margin: 2%;
+	display:flex;
+	align-items: center;
+	position:relative;
+}
+
+.row a{
+	height:4vh;
+	width:70vh;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color:rgb(128, 128, 128);
+}
+
+.row #artista{
+	color:black;
+	margin-left:0;
+	justify-content: left;
+}
+
+.row #coll{
+	justify-content: left;
+}
+
+.row #coll h6{
+	color:black;
+}
+
+.att{
+	color:rgb(128, 128, 128);	
+	margin-right:3%;
+}
+
+.row #coll #att{
+	color:rgb(128, 128, 128);	
+}
+
+.row a img{
+	height:5vh;
+}
+
+
+#last{
+	position:absolute;
+	bottom:2%;
+	justify-content: left;
+}
+
+
+
+
+
+
+
+#bio{
+	position:absolute;
+	top:0;
+	height:12vh;
+	width:55vh;
+	right:0;
+	background:white;
+	padding:1%;
+	overflow-y: scroll;
+}
+.opere{
+	margin-top: 4%;
+	min-height:50vh;
+	width: 80%;
+	background:#e0e0e0;
+	box-shadow:  23px 23px 40px #b8b8b8,
+                -23px -23px 40px #ffffff;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.titolo{
+	margin-top: 3%;
+}
+
+a img{
+	height:5vh;
+}
+
+.barraPreferiti{
+	display:flex;
+}
+
+.box{
+	margin:2%;
+}

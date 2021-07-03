@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Artista</title>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+		<link href="/css/opereStyle.css" rel="stylesheet">
+	<link href="/css/operaStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<div class="header">
+		<div class="img"><img class="foto" th:src="@{${artista.url}}"></div>
+		<div class="bio">
+			<div class="row">
+				<h5 class="att">Nome: </h5>
+				<h3 th:text="${artista.nome}+' '+${artista.cognome}"></h3>
+			</div>
+			<div class="row">
+				<h6 class="att">Nazionalità: </h6>
+
+				<h6 th:text="${artista.nazionalita}"></h6>
+				</a>
+			</div>
+			<div class="row">
+				<h6 class="att">Data di Nascita: </h6>
+				<h6 th:text="${artista.dataNascita}"></h6>
+			</div>
+			<div class="row">
+				<h6 class="att">Data di Morte: </h6>
+				<h6 th:text="${artista.dataMorte}"></h6>
+			</div>
+			<div class="row" th:if="${artista.bio}!=null and ${artista.bio}!=''">
+				<h6 class="att">Biografia: </h6>
+				<h6 id="bio" th:text="${artista.bio}"></h6>
+			</div>
+		</div>
+	</div>
+
+	<h3 class="titolo">Opere dell'artista</h3>
+
+	<div class="content">
+		<div th:each="opera : ${opereArtista}" class="opera">
+			<a th:href="@{/opera/{id} (id=${opera.id})}">
+				<div
+					th:replace="fragments/fragment.html :: operaBox(${opera.url},${opera.nomeOpera},'')">
+				</div>
+			</a>
+			<div class="barraPreferiti" sec:authorize="isAuthenticated()">
+			<a th:href="@{/aggiungiPreferiti/{id} (id=${opera.id})}" th:if="
+			${not operePreferite.contains(opera)}"><h6>Aggiungi a Preferiti</h6><img src="/svg/cuoreVuoto.svg"></a>
+			
+			<a th:href="@{/rimuoviPreferiti/{id} (id=${opera.id})}" th:unless="
+			${not operePreferite.contains(opera)}"><h6>Rimuovi dai preferiti</h6><img src="/svg/cuorePieno.svg"></a>
+			</div>
+		</div>
+
+
+
+</body>
+
+</html>

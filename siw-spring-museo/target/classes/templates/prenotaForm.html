@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
+	<title>Prenota Ticket</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h3>Prenota Ticket</h3>
+
+	<form th:action="@{/prenota/{id} (id=${ticket.id})}" method="POST">
+		<div class="row">
+			<h5 th:text="'Utente: '+${utente.nome}+' '+${utente.cognome}"></h5>
+		</div>
+		<div class="row">
+			<h5>Numero persone</h5>
+			<select th:field="${ticketPrenotato.posti_prenotati}">
+				<option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}">
+				</option>
+			</select>
+		</div>
+
+		<div class="row">
+			<h5 th:text="'Ticket ID: '+${ticket.id}"></h5>
+		</div>
+		
+		<button type="submit">Prenota</button>
+	</form>
+
+</body>
+
+</html>

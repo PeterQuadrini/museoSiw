@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.model;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +27,9 @@ public class Opera {
 	
 	@Column(nullable = false)
 	private String url;
+	
+	@ManyToOne
+	private Collezione collezione;
 	
 	@Column
 	private String descrizione;

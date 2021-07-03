@@ -31,5 +31,10 @@ public class CollezioneService {
 	public void save(Collezione collezione) {
 		this.collezioneRepository.save(collezione);
 	}
+	
+	@Transactional
+	public void remove(Collezione collezione) {
+		this.collezioneRepository.delete(collezione);
+	}
 
 }
