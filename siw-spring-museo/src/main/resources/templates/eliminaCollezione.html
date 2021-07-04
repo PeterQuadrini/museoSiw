@@ -11,7 +11,7 @@
 	<h1>Collezioni</h1>
 	<div class="content">
 		<div th:each="collezione : ${collezioni}" class="collezione">
-			<a th:href="@{/}">
+			<a th:href="@{/eliminaCollezione/{id} (id=${collezione.id})}">
 				<div
 					th:replace="fragments/fragment.html :: operaBox(${collezione.url},${collezione.nome},' ')">
 				</div>

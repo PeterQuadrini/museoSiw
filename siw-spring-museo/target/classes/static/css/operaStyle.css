@@ -119,7 +119,6 @@ body{
 	height:12vh;
 	width:55vh;
 	right:0;
-	background:white;
 	padding:1%;
 	overflow-y: scroll;
 }
@@ -149,4 +148,13 @@ a img{
 
 .box{
 	margin:2%;
+}
+
+#desc{
+	height:13vh;
+}
+
+#operaDesc{
+	overflow-y: scroll;
+	height:13vh;
 }

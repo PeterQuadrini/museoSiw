@@ -13,13 +13,15 @@
 
 	<form th:action="@{/addTicket}" method="POST">
 		<div class="row">
-			<h5 >Numero posti: </h5>
+			<h5 th:text="#{prenota.numero.posti}"></h5>
 			<input type="text" th:field="${ticket.numero_posti}"
 			 placeholder="Numero posti">
+			 <div class="rigaE" th:if="#{fields.hasErrors('ticket.numero_posti')}" th:errors="${ticket.numero_posti}"></div>
 		</div>
 		<div class="row">
-			<h5>Giorno: </h5>
+			<h5 th:text="#{prenota.giorno}"></h5>
 			<input type="date" th:field="${ticket.localDate}" placeholder="AAAA/MM/GG">
+			<div class="rigaE" th:if="#{fields.hasErrors('ticket.localDate')}" th:errors="${ticket.localDate}"></div>
 		</div>
 
 		

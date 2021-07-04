@@ -21,9 +21,13 @@ public class ArtistaValidator implements Validator {
 		if (artista.getDataMorte() != null) {
 			    if (artista.getDataNascita().isAfter(artista.getDataMorte()))
 				    errors.rejectValue("dataMorte", "incompatibile");
+			    if (artista.getDataMorte().isAfter(LocalDate.now()))
+				    errors.rejectValue("dataMorte", "incompatibile1");
 		}
 		if (artista.getDataNascita().isAfter(LocalDate.now()))
 			errors.rejectValue("dataNascita", "incompatibile");
+		if(artista.getDataNascita()==null)
+			errors.rejectValue("dataNascita", "required");
 
 	}
 

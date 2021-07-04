@@ -4,35 +4,35 @@
 <head>
 	<link href="/css/fragmentStyle.css" rel="stylesheet">
 	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
-	<title>Aggiungi Opera</title>
+	<title th:text="#{opera.add}"></title>
 </head>
 
 <body>
 	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
-	<h3>Aggiungi Opera</h3>
+	<h3 th:text="#{opera.add}"></h3>
 
 	<form th:action="@{/addOpera}" method="POST">
 		<div class="row">
-			<h5>Nome opera</h5><input type="text" name="nome" placeholder="Inserisci nome opera"
+			<h5 th:text="#{nome}"></h5><input type="text" name="nome" placeholder="Inserisci nome opera"
 				th:field="${opera.nomeOpera}" required>
 		</div>
 		<div class="row">
-			<h5>Associa artista</h5>
+			<h5 th:text="#{opera.artista}"></h5>
 			<select th:field="${opera.artista}">
 				<option th:each="artista : ${artisti}" th:value="${artista.id}"
 					th:text="${artista.nome}+' '+${artista.cognome}" required>
 				</option>
 			</select>
 			<a th:href="@{/addArtista}">
-				<h6>+ Aggiungi Artista...</h6>
+				<h6 th:text="#{opera.add.artista}"></h6>
 			</a>
 		</div>
 
 		<div class="row">
-			<h5>URL quadro</h5><input type="text" name="url" placeholder="URL" th:field="${opera.url}" required>
+			<h5 th:text="#{url}"></h5><input type="text" name="url" placeholder="URL" th:field="${opera.url}" required>
 		</div>
 		<div class="row">
-			<h5>Descrizione</h5><textarea name="descrizione" placeholder="Descrizione..."
+			<h5 th:text="#{descrizione}"></h5><textarea name="descrizione" placeholder="Descrizione..."
 				th:field="${opera.descrizione}"></textarea>
 		</div>
 		

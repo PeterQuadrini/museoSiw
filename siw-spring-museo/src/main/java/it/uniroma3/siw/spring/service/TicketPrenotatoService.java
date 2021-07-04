@@ -30,4 +30,9 @@ public class TicketPrenotatoService {
 		Optional<TicketPrenotato> ticket = this.tPrepository.findById(id);
 		return ticket.orElse(null);
 	}
+	
+	@Transactional
+	public TicketPrenotato findByUtenteId(Long id) {
+		return this.tPrepository.findByUtenteId(id);
+	}
 }

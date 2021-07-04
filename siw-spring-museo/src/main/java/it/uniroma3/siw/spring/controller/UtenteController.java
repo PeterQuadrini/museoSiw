@@ -47,7 +47,7 @@ public class UtenteController {
 
 		model.addAttribute("operePreferite", utente.getOperePreferite());
 		model.addAttribute("opere", this.operaService.tutteLeOpere());
-		return "opere.html";
+		return "/default";
 		
 	}
 

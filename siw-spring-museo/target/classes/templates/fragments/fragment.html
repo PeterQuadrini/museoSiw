@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-
+<head>
+<link rel="shortcut icon" href="/src/main/resources/static/svg/logo.svg" />
+</head>
 <body>
 	<nav class="navbar" th:fragment="intestazione">
 		<div class="area_personale">
@@ -31,7 +33,7 @@
 			<li><a th:href="@{/opere}">Opere</a></li>
 			<li><a th:href="@{/collezioni}">Collezioni</a></li>
 			<li><a th:href="@{/prenotaTicket}" sec:authorize="!hasAuthority('ADMIN')">Prenota Ticket</a></li>
-			<li><a th:href="@{/prenotaTicket}" sec:authorize="hasAuthority('ADMIN')">Gestisci Ticket</a></li>
+			<li><a th:href="@{/gestisciTicket}" sec:authorize="hasAuthority('ADMIN')">Gestisci Ticket</a></li>
 		</ul>
 		<div class="social_logos">
 			<div class="instagram">

@@ -22,9 +22,9 @@
 				<h3 th:text="${opera.artista.nome}+' '+${opera.artista.cognome}"></h3>
 				</a>
 			</div>
-			<div class="row" th:if="${opera.descrizione}!='' and ${opera.descrizione!=null}">
+			<div class="row" id="desc"th:if="${opera.descrizione}!='' and ${opera.descrizione!=null}">
 				<h6 class="att">Descrizione: </h6>
-				<h6 th:text="${opera.descrizione}"></h6>
+				<h6 id="operaDesc" th:text="${opera.descrizione}"></h6>
 			</div>
 			<div class="row" th:if="${opera.collezione}!=null"><a id="coll"
 					th:href="@{/collezione/{id} (id=${opera.collezione.id})}">

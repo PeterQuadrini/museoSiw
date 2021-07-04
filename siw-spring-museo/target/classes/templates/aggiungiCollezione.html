@@ -4,24 +4,24 @@
 <head>
 	<link href="/css/fragmentStyle.css" rel="stylesheet">
 	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
-	<title>Aggiungi Opera</title>
+	<title th:text="#{collezione.add}"></title>
 </head>
 
 <body>
 	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
-	<h3>Aggiungi Opera</h3>
+	<h3 th:text="#{collezione.add}"></h3>
 
 	<form th:action="@{/addCollezione}" method="POST">
 		<div class="row">
-			<h5>Nome Collezione</h5><input type="text" name="nome" placeholder="Inserisci nome Collezione"
+			<h5 th:text="#{nome}"></h5><input type="text" name="nome" placeholder="Inserisci nome Collezione"
 				th:field="${collezione.nome}" required>
 		</div>
 
 		<div class="row">
-			<h5>URL Collezione</h5><input type="text" name="url" placeholder="URL" th:field="${collezione.url}" required>
+			<h5 th:text="#{url}"></h5><input type="text" name="url" placeholder="URL" th:field="${collezione.url}" required>
 		</div>
 		<div class="row">
-			<h5>Descrizione</h5><textarea name="descrizione" placeholder="Descrizione..."
+			<h5 th:text="#{descrizione}"></h5><textarea name="descrizione" placeholder="Descrizione..."
 				th:field="${collezione.descrizione}"></textarea>
 		</div>
 		

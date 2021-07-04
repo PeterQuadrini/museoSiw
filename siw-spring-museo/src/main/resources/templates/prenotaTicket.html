@@ -12,7 +12,8 @@
 	<h5 th:if="${ticketDisponibili.isEmpty()}" id="message">Non sono disponibili i ticket in questo momento</h5>
 	<div class="content">
 	<label> Ticket disponibili</label>
-		<a class="row" th:each="ticket :${ticketDisponibili}" th:href="@{/prenota/{id} (id=${ticket.id})}" th:if="${ticket.localDate}>${dataOggi}">
+		<a class="row" th:each="ticket :${ticketDisponibili}" th:href="@{/prenota/{id} (id=${ticket.id})}"
+		th:if="${ticket.localDate > dataOggi} and ${ticket.posti_disponibili > 0}">
 			<label>Ticket</label>
 			<div class="block"><label>ID</label>
 				<h5 th:text="${ticket.id}"></h5>

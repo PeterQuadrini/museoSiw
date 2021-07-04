@@ -47,7 +47,7 @@
 					th:replace="fragments/fragment.html :: operaBox(${opera.url},${opera.nomeOpera},'')">
 				</div>
 			</a>
-			<div class="barraPreferiti" sec:authorize="isAuthenticated()">
+			<div class="barraPreferiti" sec:authorize="hasAuthority('DEFAULT')">
 			<a th:href="@{/aggiungiPreferiti/{id} (id=${opera.id})}" th:if="
 			${not operePreferite.contains(opera)}"><h6>Aggiungi a Preferiti</h6><img src="/svg/cuoreVuoto.svg"></a>
 			

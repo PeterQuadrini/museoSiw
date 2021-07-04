@@ -6,4 +6,6 @@ import it.uniroma3.siw.spring.model.TicketPrenotato;
 
 public interface TicketPrenotatoRepository extends CrudRepository<TicketPrenotato, Long>{
 
+	TicketPrenotato findByUtenteId(Long id);
+	
 }

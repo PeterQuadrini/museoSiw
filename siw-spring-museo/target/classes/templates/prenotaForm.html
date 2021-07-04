@@ -18,14 +18,16 @@
 		<div class="row">
 			<h5>Numero persone</h5>
 			<select th:field="${ticketPrenotato.posti_prenotati}">
-				<option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}">
+				<option th:each="i : ${#numbers.sequence(1, upper_bound)}" th:value="${i}" th:text="${i}">
 				</option>
 			</select>
 		</div>
 
 		<div class="row">
 			<h5 th:text="'Ticket ID: '+${ticket.id}"></h5>
+			<div class="rigaE" th:if="#{fields.hasErrors('ticketPrenotato.utente')}" th:errors="${ticketPrenotato.utente}"></div>
 		</div>
+		
 		
 		<button type="submit">Prenota</button>
 	</form>

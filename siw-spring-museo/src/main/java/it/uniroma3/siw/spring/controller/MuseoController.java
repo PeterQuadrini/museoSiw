@@ -19,11 +19,6 @@ public class MuseoController {
 
 	  return "index.html";
   }
-  @RequestMapping(value="/areaP", method=RequestMethod.GET)
-  public String goAreaP() {
-	  return "AreaPersonale.html";
-  }
-  
   
 
 

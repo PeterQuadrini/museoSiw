@@ -207,7 +207,7 @@ public class AdminController {
 		this.artistaService.save(artista);
 		return "gestisciArtisti.html";}
 		
-		return "newArtistaForm.html";
+		return "default";
 	}
 	
 	@RequestMapping(value="/eliminaArtista", method=RequestMethod.GET)

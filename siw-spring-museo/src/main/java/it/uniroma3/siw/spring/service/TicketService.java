@@ -1,5 +1,6 @@
 package it.uniroma3.siw.spring.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,11 @@ public class TicketService {
 	@Transactional
 	public void delete(Ticket ticket) {
 		this.ticketRepository.delete(ticket);
+	}
+	
+	@Transactional
+	public Ticket findByDate(LocalDate localDate) {
+		return this.ticketRepository.findTicketByLocalDate(localDate);
 	}
 	
 
