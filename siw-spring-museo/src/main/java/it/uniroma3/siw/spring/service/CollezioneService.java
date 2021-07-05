@@ -36,5 +36,9 @@ public class CollezioneService {
 	public void remove(Collezione collezione) {
 		this.collezioneRepository.delete(collezione);
 	}
+	
+	@Transactional
+	public void clear(Collezione collezione) {
+	}
 
 }

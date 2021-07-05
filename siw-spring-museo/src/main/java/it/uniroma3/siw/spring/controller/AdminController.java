@@ -132,7 +132,10 @@ public class AdminController {
 	@RequestMapping(value="/eliminaCollezione/{id}", method=RequestMethod.GET)
 	public String confirmEliminaCollezione(Model model, @PathVariable Long id) {
 		Collezione collezione = this.collezioneService.getCollezioneById(id);
-		collezione.svuota();
+        if(this.operaService.tutteLeOpere().size()!=0) {
+        	for(Opera o : this.operaService.tutteLeOpere())
+        		o.setCollezione(null);
+        }
 		this.collezioneService.remove(collezione);
 		return "gestisciCollezioni.html";
 	}
