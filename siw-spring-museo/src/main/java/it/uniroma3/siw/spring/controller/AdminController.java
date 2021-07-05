@@ -21,6 +21,7 @@ import it.uniroma3.siw.spring.model.Utente;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.CredentialsService;
+import it.uniroma3.siw.spring.service.CuratoreService;
 import it.uniroma3.siw.spring.service.OperaService;
 import it.uniroma3.siw.spring.service.UtenteService;
 import it.uniroma3.siw.spring.validator.ArtistaValidator;
@@ -45,6 +46,9 @@ public class AdminController {
 	
 	@Autowired
 	private ArtistaValidator artistaValidator;
+	
+	@Autowired
+	private CuratoreService curatoreService;
 	
 	@SuppressWarnings("unused")
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -107,7 +111,9 @@ public class AdminController {
 	@RequestMapping(value="/addCollezione", method=RequestMethod.GET)
 	public String getAddCollezioneForm(Model model) {
 		Collezione collezione = new Collezione();
+		model.addAttribute("curatori",this.curatoreService.findAll());
 		model.addAttribute("collezione",collezione);
+		
 		return "aggiungiCollezione.html";
 	}
 	

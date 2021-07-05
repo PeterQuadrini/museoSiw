@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="/css/fragmentStyle.css" rel="stylesheet">
+	<link href="/css/aggiungiOperaStyle.css" rel="stylesheet">
+	<title>Crea Curatore</title>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment.html :: intestazione"></nav>
+	<h3 >Crea Curatore</h3>
+
+	<form th:action="@{/creaCuratore}" method="POST">
+		<div class="row">
+			<h5 th:text="#{nome}"></h5><input type="text" name="nome" placeholder="Nome"
+				th:field="${curatore.nome}" required>
+		</div>
+		<div class="row">
+			<h5>Cognome</h5>
+            </h5><input type="text" name="nome" placeholder="Cognome"
+				th:field="${curatore.cognome}" required>
+		</div>
+		
+		<div class="row">
+			<h5>Luogo Nascita</h5>
+            </h5><input type="text" name="nome" placeholder="Luogo nascita"
+				th:field="${curatore.luogoNascita}" required>
+		</div>
+		<div class="row">
+			<h5>Data Nascita</h5>
+            </h5><input type="date" name="nome"
+				th:field="${curatore.dataNascita}" required>
+				<div class="rigaE" th:if="${#fields.hasErrors('curatore.dataNascita')}" th:errors="${curatore.dataNascita}"></div>
+		</div>
+
+		
+
+		<button type="submit">Aggiungi</button>
+	</form>
+
+</body>
+
+</html>

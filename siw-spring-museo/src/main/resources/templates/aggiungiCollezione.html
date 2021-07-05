@@ -16,7 +16,17 @@
 			<h5 th:text="#{nome}"></h5><input type="text" name="nome" placeholder="Inserisci nome Collezione"
 				th:field="${collezione.nome}" required>
 		</div>
-
+           <div class="row">
+			<h5>Curatore</h5>
+			<select th:field="${collezione.curatore}" required>
+				<option th:each="curatore : ${curatori}" th:value="${curatore.id}"
+					th:text="${curatore.nome}+' '+${curatore.cognome}" required>
+				</option>
+			</select>
+			<a th:href="@{/creaCuratore}">
+				<h6 >+ Aggiungi Curatore...</h6>
+			</a>
+		</div>
 		<div class="row">
 			<h5 th:text="#{url}"></h5><input type="text" name="url" placeholder="URL" th:field="${collezione.url}" required>
 		</div>

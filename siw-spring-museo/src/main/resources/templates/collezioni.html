@@ -11,6 +11,7 @@
 	<h1>Collezioni</h1>
 	<div class="content">
 		<div th:if="${not collezioni.isEmpty()}" th:each="collezione : ${collezioni}" class="collezione">
+		<h6 th:text="'Curatore: '+${collezione.curatore.nome}+' '+${collezione.curatore.cognome}" id="nomeA"></h6>
 			<a th:href="@{/collezione/{id} (id=${collezione.id})}">
 				<div
 					th:replace="fragments/fragment.html :: operaBox(${collezione.url},${collezione.nome},'')">

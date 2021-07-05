@@ -25,7 +25,7 @@
 
 		<div class="row">
 			<h5 th:text="'Ticket ID: '+${ticket.id}"></h5>
-			<div class="rigaE" th:if="#{fields.hasErrors('ticketPrenotato.utente')}" th:errors="${ticketPrenotato.utente}"></div>
+			<div class="rigaE" th:if="${#fields.hasErrors('ticketPrenotato.utente')}" th:errors="${ticketPrenotato.utente}"></div>
 		</div>
 		
 		

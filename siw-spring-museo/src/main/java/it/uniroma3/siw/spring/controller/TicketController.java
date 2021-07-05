@@ -43,6 +43,7 @@ public class TicketController {
 
 	@RequestMapping(value = "/prenotaTicket", method = RequestMethod.GET)
 	public String prenotaTicket(Model model) {
+
 		model.addAttribute("ticketDisponibili", this.ticketService.findAllTickets());
 		model.addAttribute("dataOggi", LocalDate.now());
 		return "prenotaTicket.html";
